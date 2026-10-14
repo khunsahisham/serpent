@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#17152d">
+  <meta name="description" content="Guide a gentle sky serpent through 25 dreamy levels, gather starlight, and curl up beneath the moon.">
+  <title>Serpent · A dreamy sky adventure</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="game-shell">
+    <header class="masthead">
+      <button class="wordmark" id="home-button" type="button" aria-label="Return to Serpent home">
+        <span class="mark" aria-hidden="true">S</span>
+        <span>SERPENT <small>a small journey to sleep</small></span>
+      </button>
+      <div class="header-actions">
+        <span class="save-note" id="save-note">Dreams stay on this device</span>
+        <button class="icon-button" id="sound-button" type="button" aria-label="Mute sound" title="Toggle sound">♫</button>
+        <button class="icon-button" id="help-button" type="button" aria-label="How to play" title="How to play">?</button>
+      </div>
+    </header>
+
+    <section class="sky-frame" id="sky-frame" aria-label="Serpent game">
+      <canvas id="game-canvas" width="960" height="640" tabindex="0" aria-label="Serpent game board. Steer with arrow keys or WASD. You can also swipe, click, or use the direction buttons."></canvas>
+      <div class="sky-glow" aria-hidden="true"></div>
+
+      <div class="hud" id="hud" hidden>
+        <div class="hud-card objective-card">
+          <span class="eyebrow" id="level-label">STAGE 1 · DREAM 1</span>
+          <strong id="level-title">First Light</strong>
+        </div>
+        <div class="hud-card dream-card">
+          <span class="eyebrow">DREAMLIGHT</span>
+          <div class="dream-line"><strong id="dream-label">0 / 4</strong><div class="meter"><span id="dream-fill"></span></div></div>
+        </div>
+        <div class="hud-card lives-card">
+          <span class="eyebrow">REST</span>
+          <strong id="lives-label" aria-label="Three rest points">● ● ●</strong>
+          <button class="pause-button" id="pause-button" type="button" aria-label="Pause game">Ⅱ</button>
+        </div>
+      </div>
+
+      <div class="level-banner" id="level-banner" hidden></div>
+      <div class="toast" id="toast" role="status" hidden></div>
+      <section class="panel" id="panel" aria-live="polite"></section>
+    </section>
+
+    <div class="controls" id="controls" hidden aria-label="Direction controls">
+      <button data-direction="up" type="button" aria-label="Move up"><span>↑</span></button>
+      <button data-direction="left" type="button" aria-label="Move left"><span>←</span></button>
+      <div class="control-center" aria-hidden="true">✦</div>
+      <button data-direction="right" type="button" aria-label="Move right"><span>→</span></button>
+      <button data-direction="down" type="button" aria-label="Move down"><span>↓</span></button>
+    </div>
+
+    <footer class="footer">
+      <span id="control-hint">Arrows / WASD · swipe · tap the sky · direction buttons</span>
+      <span>A little longer. A little sleepier. <i>☾</i></span>
+    </footer>
+  </main>
+
+  <div class="sr-only" id="announcer" aria-live="polite" aria-atomic="true"></div>
+  <noscript><p class="noscript">Serpent needs JavaScript to dream. Enable it and reload this page.</p></noscript>
+  <script src="core.js"></script>
+  <script src="game.js"></script>
+</body>
+</html>
